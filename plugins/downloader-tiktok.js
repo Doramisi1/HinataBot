@@ -1,18 +1,10 @@
 import fetch from 'node-fetch'
 import axios from 'axios'
-import { tiktokdl } from '@bochilteam/scraper'
-
+import { tiktok } from "social_media_downloader"
 let handler = async (m, { conn, usedPrefix, command, text, args }) => {
-try {
-  if (!args[0]) throw 'Uhm...url nya mana?'
-  let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${args[0]}`)).data}` 
-  conn.send2ButtonVid(m.chat, `https://api.lolhuman.xyz/api/tiktokwm?apikey=${global.lolkey}&url=${args[0]}`, txt, wm, `No Wm`, `.tiktoknowm ${args[0]}`, `Audio`, `.tiktokaudio ${args[0]}`, m)
-} catch {
-if (!args[0]) throw `Use example ${usedPrefix}${command} https://www.tiktok.com/@omagadsus/video/7025456384175017243`
-    const { author: { nickname }, video, description } = await tiktokdl(args[0])
-    const url = video.no_watermark || video.no_watermark2 || video.no_watermark_raw
-    if (!url) throw 'Can\'t download video!'
-    conn.sendFile(m.chat, url, 'tiktok.mp4', `*「 T I K T O K 」*
+let p = await tiktok(args[0])
+    if (!p.link) throw 'Can\'t download video!'
+    let cap = `*「 T I K T O K 」*
                  ████████▀▀▀████
                  ████████────▀██
                  ████████──█▄──█
@@ -21,12 +13,13 @@ if (!args[0]) throw `Use example ${usedPrefix}${command} https://www.tiktok.com/
                  █──█████──█████
                  █▄──▀▀▀──▄█████
                  ███▄▄▄▄▄███████
-──────────────────────────*
+──────────────────────────
 
-*📛Nickname:* ${nickname}
-*📒Description:* ${description}
-`.trim(), m)
-}
+*📛Nickname:* ${p.dev}
+*📒Description:* ${p.description}
+*Url:* ${p.url}
+`.trim()
+conn.send2ButtonVid(m.chat, p.link, cap, author, `No Wm`, `.tiktoknowm ${args[0]}`, `Audio`, `.tiktokaudio ${args[0]}`, fakes, adReply)
 }
 handler.help = ['tiktok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
