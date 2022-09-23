@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
-if (!args[0]) throw 'Masukkan Link'
+if (!isUrl(args[0])) throw 'Masukkan Link'
 try {
     let listSections = []
 	listSections.push(['No. ' + ++index, [
@@ -61,9 +61,12 @@ await hx.fbdown(`${args[0]}`)
 }
 handler.help = ['twitter']
 handler.tags = ['downloader']
-handler.command = /^((twt|twitter)(dl)?)$/i
-
+handler.command = /^twit(t(er(dl)?)?)?$/i
 export default handler
+
+const isUrl = (text) => {
+return text.match(new RegExp(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png|mp4)/, 'gi'))
+}
 
 async function twitterDl(url) {
 	let id = /twitter\.com\/[^/]+\/status\/(\d+)/.exec(url)[1]

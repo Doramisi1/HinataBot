@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
-if (!args[0]) throw 'Masukkan Link'
+if (!isUrl(args[0])) throw 'Masukkan Link'
 try {
     let listSections = []
 	listSections.push(['No. ' + ++index, [
@@ -44,3 +44,8 @@ handler.tags = ['downloader']
 handler.command = /^f(acebook(d(own(load(er)?)?|l))?|b(d(own(load(er)?)?|l))?)$/i
 
 export default handler
+
+const isUrl = (text) => {
+return text.match(new RegExp(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png|mp4)/, 'gi'))
+}
+

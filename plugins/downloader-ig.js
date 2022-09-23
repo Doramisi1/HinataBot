@@ -7,7 +7,7 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
 
-if (!args[0]) throw 'Masukkan Link'
+if (!isUrl(args[0])) throw 'Masukkan Link'
 try {
     let listSections = []
 	listSections.push(['No. ' + ++index, [
@@ -81,6 +81,10 @@ handler.command = /^i(nsta(gramd(own(load(er)?)?|l)|d(own(load(er)?)?|l))|g(d(ow
 handler.limit = true
 
 export default handler
+
+const isUrl = (text) => {
+return text.match(new RegExp(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png|mp4)/, 'gi'))
+}
 
 async function igdl(url) {
     return new Promise(async (resolve, reject) => {

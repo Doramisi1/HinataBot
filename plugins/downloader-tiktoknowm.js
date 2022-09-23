@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import axios from 'axios'
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
-if (!args[0]) throw 'Masukkan Link'
+if (!isUrl(args[0])) throw 'Masukkan Link'
 try {
     let listSections = []
 	listSections.push(['No. ' + ++index, [
@@ -36,7 +36,9 @@ if (args[1] == 'a') {
 handler.help = ['tiktoknowm'].map(v => v + ' <url>')
 handler.tags = ['downloader', 'premium']
 handler.command = /^(tt|tiktok)nowm(dl)?(download(er)?)?$/i
-
 handler.premium = false
-
 export default handler
+
+const isUrl = (text) => {
+return text.match(new RegExp(/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png|mp4)/, 'gi'))
+}
