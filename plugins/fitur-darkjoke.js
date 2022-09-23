@@ -1,12 +1,20 @@
 import fetch from 'node-fetch'
 import bo from 'dhn-api'
-let handler = async(m, { conn, text, usedPrefix, command }) => {
+let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
+try {
+    let listSections = []
+	listSections.push(['No. ' + ++index, [
+          ['Metode A', usedPrefix + command + ' a', '\n⌚ *By:* ' + author],
+          ['Metode B', usedPrefix + command + ' b', '\n⌚ *By:* ' + author]
+                  ]])
+        if (!args[0]) return conn.sendList(m.chat, htki + ' 📺 Dark Search 🔎 ' + htka, `⚡ Silakan pilih Dark Search di tombol di bawah...\n*Teks yang anda kirim:* ${args[0]}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Dark Search Disini ☂️`, listSections, m)
+
+if (args[0] == 'a') {
 let caption = `*⎔┉━「 Random darkjoke 」━┉⎔*
 🤠 *Query* : ${command}`
-try {
         let images = `https://api-xcoders.xyz/api/random/darkjoke?apikey=${global.xckey}`
         await conn.sendButton(m.chat, caption, wm, images, [['Darkjoke','.darkjoke']] , m, {
             fileLength: fsizedoc,
@@ -22,7 +30,8 @@ try {
     sourceUrl: sgc
      }}
   })
-        } catch {
+        } 
+        if (args[0] == 'b') {
         let res = await bo.Darkjokes()
 await conn.sendButton(m.chat, caption, wm, res, [['Darkjoke','.darkjoke']] , m, {
             fileLength: fsizedoc,
@@ -39,6 +48,9 @@ await conn.sendButton(m.chat, caption, wm, res, [['Darkjoke','.darkjoke']] , m, 
      }}
   })
 }
+} catch (e) {
+    throw eror
+    }
 }
 handler.help = ['darkjoke']
 handler.tags = ['fun']

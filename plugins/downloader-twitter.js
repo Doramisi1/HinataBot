@@ -1,23 +1,31 @@
 import fetch from 'node-fetch'
 import axios from 'axios'
 import hx from 'hxz-api'
-
+import { twitter } from "social_media_downloader"
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
-
-if (!text) throw 'Input URL'
 try {
-	let res = await twitterDl(text)
+if (!args[0]) throw 'Masukkan Link'
+    let listSections = []
+	listSections.push(['No. ' + ++index, [
+          ['Metode A', usedPrefix + command + ' ' + args[0] + ' a', '\n⌚ *By:* ' + author],
+          ['Metode B', usedPrefix + command + ' ' + args[0] + ' b', '\n⌚ *By:* ' + author],
+          ['Metode C', usedPrefix + command + ' ' + args[0] + ' c', '\n⌚ *By:* ' + author],
+          ['Metode D', usedPrefix + command + ' ' + args[0] + ' d', '\n⌚ *By:* ' + author]
+                  ]])
+        if (args[0]) return conn.sendList(m.chat, htki + ' 📺 Twitter Search 🔎 ' + htka, `⚡ Silakan pilih Twitter Search di tombol di bawah...\n*Teks yang anda kirim:* ${args[0]}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Twitter Search Disini ☂️`, listSections, m)
+
+if (args[1] == 'a') {
+	let res = await twitterDl(args[0])
 	for (let x = 0; x < res.media.length; x++) {
 		let caption = x === 0 ? res.caption.replace(/https:\/\/t.co\/[a-zA-Z0-9]+/gi, '').trim() : ''
   conn.sendButtonVid(m.chat, res.media[x].url, caption, author, 'To mp3', '.tomp3', fakes, adReply)
 	}
-	} catch {
-	try {
-  if (!text) throw '*Masukkan link*\n Example: https://twitter.com/sosmedkeras/status/1499995651240697859?s=20&t=gBiahHhbBT0FxZ3aVa3bJw'
-let res = await axios('https://violetics.pw/api/downloader/twitter?apikey=beta&url=' + text)
+	}
+	if (args[1] == 'b') {
+let res = await axios('https://violetics.pw/api/downloader/twitter?apikey=beta&url=' + args[0])
 let json = res.data
 let dapet = json.result.url
 	let row = Object.values(dapet).map((v, index) => ({
@@ -27,23 +35,29 @@ let dapet = json.result.url
 	}))
 	let button = {
 		buttonText: `☂️ ${command} Search Disini ☂️`,
-		description: `⚡ Hai ${name}, Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		description: `⚡ Hai ${name}, Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${args[0]}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
 	return conn.sendListM(m.chat, button, row, m)
-	} catch {
-   throw eror 
-     }
+	}
+	
+	if (args[1] == 'c') {
 	/* Twit */
-await hx.fbdown(`${text}`)
+await hx.fbdown(`${args[0]}`)
             .then(G => {
             let ten = `${G.HD}`
             conn.sendButtonVid(m.chat, ten, `*desc* : ${G.desc}
 ━━━━━•─────────────── 
        ⇆ㅤ◁ㅤ ❚❚ㅤ ▷ㅤ↻`, author, 'To mp3', '.tomp3', fakes, adReply)
             })
+            }
+	if (args[1] == 'd') {
+	let p = await twitter(args[0])
+	throw p
 	}
-	
+	} catch (e) {
+    throw eror
+    }
 }
 handler.help = ['twitter']
 handler.tags = ['downloader']

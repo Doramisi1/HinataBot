@@ -6,12 +6,20 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
 try {
-    if (!args[0]) throw `Use example ${usedPrefix}${command} https://fb.watch/azFEBmFRcy/`
-    const { result } = await facebookdl(args[0]).catch(async _ => await facebookdlv2(args[0]))
+if (!args[0]) throw 'Masukkan Link'
+    let listSections = []
+	listSections.push(['No. ' + ++index, [
+          ['Metode A', usedPrefix + command + ' ' + args[0] + ' a', '\n⌚ *By:* ' + author],
+          ['Metode B', usedPrefix + command + ' ' + args[0] + ' b', '\n⌚ *By:* ' + author]
+                  ]])
+        if (args[0]) return conn.sendList(m.chat, htki + ' 📺 Fb Search 🔎 ' + htka, `⚡ Silakan pilih Fb Search di tombol di bawah...\n*Teks yang anda kirim:* ${args[0]}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Fb Search Disini ☂️`, listSections, m)
+
+if (args[1] == 'a') {
+        const { result } = await facebookdl(args[0]).catch(async _ => await facebookdlv2(args[0]))
     for (const { url, isVideo } of result.reverse()) conn.sendFile(m.chat, url, `facebook.${!isVideo ? 'bin' : 'mp4'}`, `🔗 *Url:* ${url}`, m)
-    } catch {
-if (!text) throw '*Masukkan link*\n Example: https://www.facebook.com/DramaFacbook21/videos/1775049149358700/?app=fbl'
-let res = await axios('https://violetics.pw/api/downloader/facebook?apikey=beta&url=' + text)
+    }
+    if (args[1] == 'b') {
+let res = await axios('https://violetics.pw/api/downloader/facebook?apikey=beta&url=' + args[0])
 let json = res.data
 let dapet = json.result.url
 	let row = Object.values(dapet).map((v, index) => ({
@@ -21,10 +29,13 @@ let dapet = json.result.url
 	}))
 	let button = {
 		buttonText: `☂️ ${command} Search Disini ☂️`,
-		description: `⚡ Hai ${name}, Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		description: `⚡ Hai ${name}, Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${args[0]}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
 	return conn.sendListM(m.chat, button, row, m)
+    }
+    } catch (e) {
+    throw eror
     }
 }
 handler.help = ['facebook'].map(v => v + ' <url>')

@@ -2,6 +2,7 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import { tiktok } from "social_media_downloader"
 let handler = async (m, { conn, usedPrefix, command, text, args }) => {
+try {
 let p = await tiktok(args[0])
     if (!p.link) throw 'Can\'t download video!'
     let cap = `*「 T I K T O K 」*
@@ -20,6 +21,9 @@ let p = await tiktok(args[0])
 *Url:* ${p.url}
 `.trim()
 conn.send2ButtonVid(m.chat, p.link, cap, author, `No Wm`, `.tiktoknowm ${args[0]}`, `Audio`, `.tiktokaudio ${args[0]}`, fakes, adReply)
+} catch (e) {
+    throw eror
+    }
 }
 handler.help = ['tiktok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
