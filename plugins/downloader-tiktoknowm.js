@@ -1,8 +1,8 @@
 import fetch from 'node-fetch'
 import axios from 'axios'
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
+if (!args[0]) throw 'Masukkan Link'
 try {
-  if (!args[0]) throw 'Masukkan Link'
     let listSections = []
 	listSections.push(['No. ' + ++index, [
           ['Metode A', usedPrefix + command + ' ' + args[0] + ' a', '\n⌚ *By:* ' + author],

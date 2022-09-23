@@ -6,8 +6,8 @@ let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
-try {
 if (!args[0]) throw 'Masukkan Link'
+try {
     let listSections = []
 	listSections.push(['No. ' + ++index, [
           ['Metode A', usedPrefix + command + ' ' + args[0] + ' a', '\n⌚ *By:* ' + author],
@@ -75,8 +75,8 @@ async function twitterDl(url) {
 		let media = []
 		for (let i of json.media) {
 			if (/video|animated_gif/.test(i.type)) {
-				let vid = await (await fetch(`https://tweetpik.com/api/tweets/${id}/video`)).json()
-				vid = vid.variants.pop()
+				let vids = await (await fetch(`https://tweetpik.com/api/tweets/${id}/video`)).json()
+				let vid = vids.variants.pop()
 				media.push({
 					url: vid.url,
 					type: i.type

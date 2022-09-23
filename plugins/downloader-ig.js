@@ -6,8 +6,9 @@ let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
-try {
+
 if (!args[0]) throw 'Masukkan Link'
+try {
     let listSections = []
 	listSections.push(['No. ' + ++index, [
           ['Metode A', usedPrefix + command + ' ' + args[0] + ' a', '\n⌚ *By:* ' + author],
