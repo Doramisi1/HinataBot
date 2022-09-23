@@ -93,6 +93,7 @@
         "sagiri": "*",
         "similarity": "*",
         "social-downloader-cherry": "*",
+        "social_media_downloader": "*",
         "socket.io": "*",
         "soundcloud-downloader": "*",
         "syntax-error": "*",
