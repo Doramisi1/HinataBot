@@ -18,8 +18,8 @@ let imgr = flaaa.getRandom()
     if (result.code == '200') {
     // if (!json.status) throw json
     let caption = `
-*TEBAK JUDUL LAGU*
-Nomor: ${json.number}
+*Tebak Surah*
+Number In Surah: ${json.numberInSurah}
 By: ${json.edition.name} ${json.edition.englishName}
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*
@@ -28,6 +28,9 @@ Bonus: ${poin} XP
 *Balas pesan ini untuk menjawab!*`.trim()
 
 let captu = `
+*${json.surah.englishName}*
+
+*INFORMATION*
 Surah Number: ${json.surah.number}
 Surah Name: ${json.surah.name} ${json.surah.englishName}
 Eng Name: ${json.surah.englishNameTranslation}
@@ -45,7 +48,7 @@ Type: ${json.surah.revelationType}
             delete conn.tebaksurah[id]
         }, timeout)
     ]
-    await conn.sendFile(m.chat, json.json, 'coba-lagi.mp3', '', m)
+    await conn.sendFile(m.chat, json.audio, 'coba-lagi.mp3', '', m)
     } else if (result.code == '404') {
     m.reply(`*Ulangi! Command ${usedPrefix + command} Karena ${json.data}*`)
     }
