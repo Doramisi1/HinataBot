@@ -53,7 +53,7 @@ export async function handler(chatUpdate) {
               if (!('misi' in user)) user.misi = ''
               if (!('pasangan' in user)) user.pasangan = ''
               if (!('premium' in user)) user.premium = false
-              if (!('registered' in user)) user.registered = false
+              if (!('registered' in user)) user.registered =true
               if (!('role' in user)) user.role = 'Beginner'
               if (!('sewa' in user)) user.sewa = false
               if (!('skill' in user)) user.skill = ''
@@ -212,7 +212,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.jagung)) user.jagung = 0
               if (!isNumber(user.jagungbakar)) user.jagungbakar = 0
               if (!isNumber(user.jeruk)) user.jeruk = 0
-              if (!isNumber(user.joinlimit)) user.joinlimit = 1
+              if (!isNumber(user.joinlimit)) user.joinlimit = 1000
               if (!isNumber(user.judilast)) user.judilast = 0
               if (!isNumber(user.kaleng)) user.kaleng = 0
               if (!isNumber(user.kambing)) user.kambing = 0
@@ -333,8 +333,8 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.lelebakar)) user.lelebakar = 0
               if (!isNumber(user.leleg)) user.leleg = 0
               if (!isNumber(user.level)) user.level = 0
-              if (!isNumber(user.limit)) user.limit = 10
-              if (!isNumber(user.limitjoinfree)) user.limitjoinfree = 1
+              if (!isNumber(user.limit)) user.limit = 10000
+              if (!isNumber(user.limitjoinfree)) user.limitjoinfree = 1000
               if (!isNumber(user.lion)) user.lion = 0
               if (!isNumber(user.lionexp)) user.lionexp = 0
               if (!isNumber(user.lionlastfeed)) user.lionlastfeed = 0
@@ -723,8 +723,8 @@ export async function handler(chatUpdate) {
                     lelebakar: 0,
                     leleg: 0,
                     level: 0,
-                    limit: 25,
-                    limitjoinfree: 1,
+                    limit: 10000,
+                    limitjoinfree: 100,
                     lion: 0,
                     lionexp: 0,
                     lionlastfeed: 0,
@@ -869,7 +869,7 @@ export async function handler(chatUpdate) {
             if (typeof chat !== 'object')
                 global.db.data.chats[m.chat] = {}
             if (chat) {
-                if (!('antiDelete' in chat)) chat.antiDelete = true
+                if (!('antiDelete' in chat)) chat.antiDelete = false
                 if (!('antiLink' in chat)) chat.antiLink = false
                 if (!('antiSticker' in chat)) chat.antiSticker = false
                 if (!('antiToxic' in chat)) chat.antiToxic = true
@@ -895,7 +895,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(chat.expired)) chat.expired = 0
             } else
                 global.db.data.chats[m.chat] = {
-                    antiDelete: true,
+                    antiDelete: false,
 	                antiLink: false,
 	                antiSticker: false,
 	                antiToxic: false,
