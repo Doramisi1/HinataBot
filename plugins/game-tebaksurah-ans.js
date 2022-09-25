@@ -14,14 +14,14 @@ export async function before(m) {
             delete this.tebaksurah[id]
             return conn.sendButton(m.chat, '*Yah Menyerah :( !*', author, null, buttontebaksurah, m)
         }
-        let ras = JSON.parse(JSON.stringify(this.tebaksurah[id][1]))
-        // m.reply(JSON.stringify(ras, null, '\t'))
-        if (m.text.toLowerCase() == ras.name.toLowerCase().trim()) {
+        let json = JSON.parse(JSON.stringify(this.tebaksurah[id][1]))
+        // m.reply(JSON.stringify(json, null, '\t'))
+        if (m.text.toLowerCase() == json.surah.englishName.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tebaksurah[id][2]
             conn.sendButton(m.chat, `*Benar!*\n+${this.tebaksurah[id][2]} XP`, author, null, buttontebaksurah, m)
             clearTimeout(this.tebaksurah[id][3])
             delete this.tebaksurah[id]
-        } else if (similarity(m.text.toLowerCase(), ras.name.toLowerCase().trim()) >= threshold)
+        } else if (similarity(m.text.toLowerCase(), json.surah.englishName.toLowerCase().trim()) >= threshold)
             m.reply(`*Dikit Lagi!*`)
         else
             conn.sendButton(m.chat, `*Salah!*`, author, null, [

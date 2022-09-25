@@ -10,38 +10,44 @@ let imgr = flaaa.getRandom()
         conn.sendButton(m.chat, 'Masih ada soal belum terjawab di chat ini', author, null, buttons, conn.tebaksurah[id][0])
         throw false
     }
-    let ran = 114
-    let src = await (await fetch('https://api.alquran.cloud/v1/surah/' + ran.getRandom() + '/ar.alafasy')).json()
-    let ras = src.data
-    let strs = src.data.ayahs
-for (let i = 0; i < strs.length; i++) {
-let v = i.getRandom()
-let str = `*${v.text}*
-*audio:* ${v.audio}
-*number:* ${v.number}
-*numberInSurah:* ${v.numberInSurah}
-*juz:* ${v.juz}
-*manzil:* ${v.manzil}
-*page:* ${v.page}
-*ruku:* ${v.ruku}
-*hizbQuarter:* ${v.hizbQuarter}`
-    await conn.sendFile(m.chat, v.audio, 'coba-lagi.mp3', '', m)
-  let caption = `
+    let ran = 6236
+    let res = await fetch('https://api.alquran.cloud/v1/ayah/' + ran.getRandom() + '/ar.alafasy')
+    if (res.status !== 200) throw await res.text()
+    let result = await res.json()
+    let json = result.data
+    if (result.code == '200') {
+    // if (!json.status) throw json
+    let caption = `
+*TEBAK JUDUL LAGU*
+Nomor: ${json.number}
+By: ${json.edition.name} ${json.edition.englishName}
+
 Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}hsur untuk bantuan
+Ketik *${usedPrefix}hsur* untuk bantuan
 Bonus: ${poin} XP
-    `.trim()
-    
+*Balas pesan ini untuk menjawab!*`.trim()
+
+let captu = `
+Surah Number: ${json.surah.number}
+Surah Name: ${json.surah.name} ${json.surah.englishName}
+Eng Name: ${json.surah.englishNameTranslation}
+Number Of Ayahs: ${json.surah.numberOfAyahs}
+Type: ${json.surah.revelationType}
+`
+
     conn.tebaksurah[id] = [
         await conn.sendButton(m.chat, caption, author, `${imgr + command}`, buttons, m),
-        ras, poin,
+        json, poin,
         setTimeout(() => {
-            if (conn.tebaksurah[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${ras.name + '\n' + str}*`, author, null, [
+            if (conn.tebaksurah[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah ${captu}`, author, null, [
                 ['tebaksurah', '/tebaksurah']
             ], conn.tebaksurah[id][0])
             delete conn.tebaksurah[id]
         }, timeout)
     ]
+    await conn.sendFile(m.chat, json.preview, 'coba-lagi.mp3', '', m)
+    } else if (result.code == '404') {
+    m.reply(`*Ulangi! Command ${usedPrefix + command} Karena ${json.data}*`)
     }
 }
 handler.help = ['tebaksurah']
