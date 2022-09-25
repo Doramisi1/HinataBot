@@ -15,7 +15,7 @@ let imgr = flaaa.getRandom()
     let ras = src.data
     let strs = src.data.ayahs
 for (let i = 0; i < strs.length; i++) {
-let v = strs[i].getRandom()
+let v = i.getRandom()
 let str = `*${v.text}*
 *audio:* ${v.audio}
 *number:* ${v.number}
@@ -34,7 +34,7 @@ Bonus: ${poin} XP
     
     conn.tebaksurah[id] = [
         await conn.sendButton(m.chat, caption, author, `${imgr + command}`, buttons, m),
-        json, poin,
+        ras, poin,
         setTimeout(() => {
             if (conn.tebaksurah[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${ras.name + '\n' + str}*`, author, null, [
                 ['tebaksurah', '/tebaksurah']

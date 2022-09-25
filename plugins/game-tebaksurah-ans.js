@@ -14,8 +14,8 @@ export async function before(m) {
             delete this.tebaksurah[id]
             return conn.sendButton(m.chat, '*Yah Menyerah :( !*', author, null, buttontebaksurah, m)
         }
-        let json = JSON.parse(JSON.stringify(this.tebaksurah[id][1]))
-        // m.reply(JSON.stringify(json, null, '\t'))
+        let ras = JSON.parse(JSON.stringify(this.tebaksurah[id][1]))
+        // m.reply(JSON.stringify(ras, null, '\t'))
         if (m.text.toLowerCase() == ras.name.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tebaksurah[id][2]
             conn.sendButton(m.chat, `*Benar!*\n+${this.tebaksurah[id][2]} XP`, author, null, buttontebaksurah, m)
