@@ -17,8 +17,7 @@ let imgr = flaaa.getRandom()
     let json = result.data
     if (result.code == '200') {
     // if (!json.status) throw json
-    let caption = `
-*Tebak Surah*
+    let caption = `*${command.toUpperCase()}*
 Number In Surah: ${json.numberInSurah}
 By: ${json.edition.name} ${json.edition.englishName}
 

@@ -10,7 +10,8 @@ let handler = async (m, { conn, usedPrefix }) => {
         throw false
     }
     let json = await tebakgambar()
-    let caption = `Rangkailah Gambar Ini
+    let caption = `*${command.toUpperCase()}*
+Rangkailah Gambar Ini
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hgam untuk bantuan
 Bonus: ${poin} XP

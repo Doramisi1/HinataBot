@@ -14,7 +14,7 @@ let imgr = flaaa.getRandom()
     if (!res.ok) throw await `${res.status} ${res.statusText}`
     let data = await res.json()
     let json = data[Math.floor(Math.random() * data.length)]
-    let caption = `
+    let caption = `*${command.toUpperCase()}*
 ${json.soal}
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*

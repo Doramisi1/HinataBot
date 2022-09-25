@@ -10,8 +10,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
     let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkabupaten.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
-  let caption = `
-  Kabupaten apakah ini?
+  let caption = `*${command.toUpperCase()}*
+Kabupaten apakah ini?
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hkab untuk bantuan
 Bonus: ${poin} XP

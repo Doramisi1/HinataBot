@@ -12,7 +12,7 @@ let imgr = flaaa.getRandom()
     }
     let res = await fetch(`https://sekha.me/api/game/tebakgombal?apikey=apirey`)
     let json = await res.json()
-  let caption = `
+  let caption = `*${command.toUpperCase()}*
   ${json.soal}
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*

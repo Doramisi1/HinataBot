@@ -12,7 +12,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     let jsons = await res.json()
     let jso = jsons.data
     let json = jso.getRandom()
-    let caption = `Siapakah nama dari gambar ini
+    let caption = `*${command.toUpperCase()}*
+Siapakah nama dari gambar ini
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hcha untuk hint

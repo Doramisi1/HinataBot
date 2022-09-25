@@ -18,8 +18,7 @@ let imgr = flaaa.getRandom()
     let json = result.result
     if (json.artist !== '404') {
     // if (!json.status) throw json
-    let caption = `
-*TEBAK JUDUL LAGU*
+    let caption = `*${command.toUpperCase()}*
 Penyanyi: ${json.artist}
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*

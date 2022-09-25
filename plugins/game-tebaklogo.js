@@ -10,7 +10,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
     let res = await fetch(`https://api.akuari.my.id/games/tebakapp`)
     let json = await res.json()
-    let caption = `Logo apakah ini?
+    let caption = `*${command.toUpperCase()}*
+Logo apakah ini?
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hlog untuk hint

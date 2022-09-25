@@ -10,7 +10,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
     let res = await fetch(`http://zekais-api.herokuapp.com/tebakanime`)
     let json = await res.json()
-    let caption = `Siapakah nama dari gambar ini
+    let caption = `*${command.toUpperCase()}*
+Siapakah nama dari gambar ini
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hani untuk hint

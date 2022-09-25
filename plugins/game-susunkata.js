@@ -12,7 +12,7 @@ let imgr = flaaa.getRandom()
     }
     let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
-  let caption = `
+  let caption = `*${command.toUpperCase()}*
   ${json.soal}
   ${json.tipe}
 

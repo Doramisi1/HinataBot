@@ -13,7 +13,7 @@ let imgr = flaaa.getRandom()
         throw false
     }
     const json = await siapakahaku()
-    let caption = `
+    let caption = `*${command.toUpperCase()}*
 Siapakah aku? ${json.soal}
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hsi untuk bantuan

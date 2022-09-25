@@ -12,7 +12,7 @@ let imgr = flaaa.getRandom()
         throw false
     }
     const json = await caklontong()
-    let caption = `
+    let caption = `*${command.toUpperCase()}*
 ${json.soal}
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*

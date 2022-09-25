@@ -12,7 +12,7 @@ let imgr = flaaa.getRandom()
     }
     let res = await fetch('https://anabotofc.herokuapp.com/api/kuis/tebakkimia?apikey=AnaBot')
     let json = await res.json()
-    let caption = `
+    let caption = `*${command.toUpperCase()}*
 ${json.soal}
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*
