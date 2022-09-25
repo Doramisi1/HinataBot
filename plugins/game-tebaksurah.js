@@ -45,7 +45,7 @@ Type: ${json.surah.revelationType}
             delete conn.tebaksurah[id]
         }, timeout)
     ]
-    await conn.sendFile(m.chat, json.preview, 'coba-lagi.mp3', '', m)
+    await conn.sendFile(m.chat, json.json, 'coba-lagi.mp3', '', m)
     } else if (result.code == '404') {
     m.reply(`*Ulangi! Command ${usedPrefix + command} Karena ${json.data}*`)
     }
