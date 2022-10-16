@@ -90,7 +90,7 @@
 
 ## TERMUX USER
 ```bash
-$ npm upgrade && npm update
+$ npm upgrade && npm update && npm install git && npm install nodejs && npm install imagemagick
 $ npm install git -y
 $ npm install nodejs -y
 $ npm install ffmpeg -y
