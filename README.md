@@ -90,11 +90,11 @@
 
 ## TERMUX USER
 ```bash
-$ pkg upgrade && pkg update
-$ pkg install git -y
-$ pkg install nodejs -y
-$ pkg install ffmpeg -y
-$ pkg install imagemagick -y
+$ npm upgrade && npm update
+$ npm install git -y
+$ npm install nodejs -y
+$ npm install ffmpeg -y
+$ npm install imagemagick -y
 $ git clone https://github.com/AyGemuy/HinataBot/
 $ cd HinataBot-master
 $ npm i 
