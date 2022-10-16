@@ -6,7 +6,7 @@ import moment from 'moment-timezone'
 
 /*Oᴡɴᴇʀ number*/
 global.owner = [
-  ['6282195322106', '️One', true],
+  ['6281368176386', '️One', true],
   ['6282195322106', '️Two', true],
   ['6282195322106', '️Three', true],
   ['6282195322106', '️Four', true],
@@ -89,15 +89,15 @@ global.xckey = '7iyNa0qA'
 */
 
 /*Number*/
-global.nomorbot = '6285171216276'
-global.nomorown = '6282195322106'
-global.namebot = 'ʜɪɴᴀᴛᴀ-ʙᴏᴛ'
+global.nomorbot = '6281368176386'
+global.nomorown = '6281368176386'
+global.namebot = 'ghost-ʙᴏᴛ'
 global.nameown = '「 Oᴡɴᴇʀ 」'
 
 /*Watermark*/
-global.wm = '                「 ʜɪɴᴀᴛᴀ-ʙᴏᴛ あ⁩ 」'
+global.wm = '                「 ghost-ʙᴏᴛ あ⁩ 」'
 global.wm2 = '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘օառɛʀ˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷'
-global.wm3 = '⫹⫺ ʜɪɴᴀᴛᴀ-ʙᴏᴛ'
+global.wm3 = '⫹⫺ ghost-ʙᴏᴛ'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
@@ -439,13 +439,13 @@ global.htjava = '⫹⫺'
 
 /*Watermark*/
 global.stickpack = '.'
-global.stickauth = `☂︎ 𝗛𝗶𝗻𝗮𝘁𝗮 乂 𝘄𝘂𝗱𝘆𝘀𝗼𝗳𝘁\n⫹⫺ 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩\nwa.me/${global.nomorbot}`
+global.stickauth = `☂︎ JANGAN 乂 NYOLONG\n⫹⫺ 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩\nwa.me/${global.nomorbot}`
 global.packname = '☂︎ ᴄʀᴇᴀᴛᴇᴅ ʙʏ'
-global.author = '𝗛𝗶𝗻𝗮𝘁𝗮 乂 𝘄𝘂𝗱𝘆𝘀𝗼𝗳𝘁'
-global.multiplier = 10
+global.author = 'EGA 乂 GANTENG'
+global.multiplier = 1000
 
 /*Pesan*/
-global.eror = '*ᴇʀᴏʀʀ!*'
+global.eror = '*ᴇʀᴏʀʀ! Kagak bisa*'
 global.wait = '*ᴡᴀɪᴛ!*'
 global.render = '*ʀᴇɴᴅᴇʀ!*'
 global.webs = 'https://s.id/Cerdasin62'
@@ -454,16 +454,16 @@ global.gcwangsaf = 'https://chat.whatsapp.com/Fxz8FpQ0ddr2GrEjfYkJ1E'
 
 /*Donasi*/
 global.saweria = 'https://saweria.co/wudysoft'
-global.dana = '0887435373103'
-global.pulsa = '082195322106'
+global.dana = '6281368176386'
+global.pulsa = '6281368176386'
 global.trakteer = 'https://trakteer.id/wudysoft'
-global.paypal = 'wudysoft@mail.com'
-global.gopay = '082195322106'
-global.pdana = '0887435373103'
-global.povo = '082195322106'
-global.pgopay = '082195322106'
-global.ppulsa = '082195322106'
-global.ppulsa2 = '082195322106'
+global.paypal = 'egabertoananta@mail.com'
+global.gopay = '6281368176386'
+global.pdana = '6281368176386'
+global.povo = '6281368176386'
+global.pgopay = '6281368176386'
+global.ppulsa = '6281368176386'
+global.ppulsa2 = '6281368176386'
 global.psaweria = 'https://saweria.com/Wudysoft'
 
 /*Emoji*/
