@@ -7,7 +7,7 @@ import moment from 'moment-timezone'
 /*Oᴡɴᴇʀ number*/
 global.owner = [
   ['6281368176386', '️One', true],
-  ['6282195322106', '️Two', true],
+  ['6283802603905', '️Two', true],
   ['6282195322106', '️Three', true],
   ['6282195322106', '️Four', true],
   ['6282195322106', '️Five', true],
@@ -18,7 +18,7 @@ global.owner = [
   ['6282195322106', '️Teen', true]
 ]
 global.mods = []
-global.prems = []
+global.prems = ['6281368176386','6283802603905']
 global.girlfren = []
 
 /*Website*/
@@ -89,14 +89,14 @@ global.xckey = '7iyNa0qA'
 */
 
 /*Number*/
-global.nomorbot = '6281368176386'
-global.nomorown = '6281368176386'
+global.nomorbot = '628388986298'
+global.nomorown = '6281368176386','6283802603905'
 global.namebot = 'ghost-ʙᴏᴛ'
-global.nameown = '「 Oᴡɴᴇʀ 」'
+global.nameown = '「 Oᴡɴᴇʀ tersayang 」'
 
 /*Watermark*/
-global.wm = '                「 ghost-ʙᴏᴛ あ⁩ 」'
-global.wm2 = '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘օառɛʀ˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷'
+global.wm = '                [ ghost-bot 葱茏 ]
+global.wm2 = '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘owner tersayang˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷'
 global.wm3 = '⫹⫺ ghost-ʙᴏᴛ'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
@@ -393,7 +393,7 @@ global.hwaifu = ['https://i.pinimg.com/originals/ed/34/f8/ed34f88af161e6278993e1
 
 /*Link*/
 global.sig = 'https://www.instagram.com/notifikasi_pemberitahuan'
-global.sgh = 'https://www.github.com/AyGemuy'
+global.sgh = 'https://www.github.com/Doramisi1'
 global.sgc = 'https://chat.whatsapp.com/BAs2c2UeLE8AaI806UWUvI'
 global.sdc = 'https://www.discord.com/wudysoft'
 global.snh = 'https://www.tiktok.com/@upload_file'
@@ -401,8 +401,8 @@ global.sfb = 'https://www.facebook.com/'
 global.syt = 'https://www.youtube.com/'
 
 /*Nsfw*/
-global.optsnsfw = true
-global.premnsfw = true
+global.optsnsfw = false
+global.premnsfw = false
 
 /*Type*/
 global.dpptx = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
@@ -442,7 +442,7 @@ global.stickpack = '.'
 global.stickauth = `☂︎ JANGAN 乂 NYOLONG\n⫹⫺ 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩\nwa.me/${global.nomorbot}`
 global.packname = '☂︎ ᴄʀᴇᴀᴛᴇᴅ ʙʏ'
 global.author = 'EGA 乂 GANTENG'
-global.multiplier = 1000
+global.multiplier = 94
 
 /*Pesan*/
 global.eror = '*ᴇʀᴏʀʀ! Kagak bisa*'
